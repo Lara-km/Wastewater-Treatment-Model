@@ -53,6 +53,58 @@ k_chl = 0.14      # Chlorine decay constant (hr^-1)
 u_limit = 5       # Safety limit for chlorine mg/L
 dt = 0.01         # Time step for Eulers
 
+
+
+
+# Plots / visualisation
+
+def plot_bisection_convergence(mids, u_opt):
+    
+    """
+   Plot bisection iteration convergence.
+   """
+   
+    plt.figure(figsize=(8, 5))
+    plt.plot(mids, 'o-', label='Midpoint per iteration')
+    plt.axhline(y=u_opt, color='r', linestyle='--', label=f'Final solution = {u_opt:.2f}')
+    plt.xlabel('Iteration')
+    plt.ylabel('Midpoint value')
+    plt.title('Bisection Method Convergence')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+ 
+    
+def plot_concentrations (t_vals, C_vals, u_vals, u_opt):
+    
+    """
+    Plot pollutant and chlorine concentrations over time.
+    """
+    
+    #pollutant
+    plt.figure(figsize=(8,5))
+    plt.plot(t_vals, C_vals, label='Pollutant concentration C(t)')
+    plt.axhline(C_target, color='r', linestyle='--', label='C_target')
+    plt.axvline(t_target, color='g', linestyle='--', label='t_target')
+    plt.xlabel('Time (hr)')
+    plt.xticks(np.arange(0, 25, 2))
+    plt.ylabel('Pollutant concentration [mg/L]')
+    plt.title(f'Pollutant Decay (u_in={u_opt:.2f} mg/L)')
+    plt.legend() 
+    plt.grid(True) 
+    plt.show()
+    
+    #Chlorine
+    plt.figure(figsize=(8,5))
+    plt.plot(t_vals, u_vals, color='orange', label='Chlorine concentration u(t)')
+    plt.axhline(u_limit, color='r', linestyle='--', label='u_limit')
+    plt.xlabel('Time (hr)')
+    plt.xticks(np.arange(0, 25, 2))
+    plt.ylabel('Chlorine concentration [mg/L]')
+    plt.title('Chlorine Dynamics')
+    plt.legend() 
+    plt.grid(True) 
+    plt.show()
 # Secondary Analysis including internal decay: Newton-Raphson
 
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
