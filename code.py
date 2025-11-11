@@ -54,6 +54,43 @@ u_limit = 5       # Safety limit for chlorine mg/L
 dt = 0.01         # Time step for Eulers
 
 
+# Root Finding (Bisection Method)
+ 
+def bisection_method(f, a, b, tol=1e-6, max_iter=50):
+    
+    """
+    Find root using bisection method.
+    
+    Args:
+        f (callable): Function to find root for
+        a, b (float): Search interval
+        tol (float): Tolerance
+        max_iter (int): Maximum iterations
+    
+    Returns:
+        root (float), mids (list): Root estimate and midpoints per iteration
+    """
+    
+    mids = []
+    if f(a) * f(b) >= 0:
+        raise ValueError("f(a) and f(b) must have opposite signs for bisection.")
+        
+    for _ in range(max_iter):
+        c = (a + b) / 2
+        f_c = f(c)
+        mids.append(c)
+        
+        if abs(f_c) < tol:
+            return c, mids
+        
+        elif f(c) * f(a) < 0:
+            b = c
+            
+        else:           
+            a = c
+            
+    return (a + b) / 2 , mids # Approximate root
+
 
 
 # Plots / visualisation
