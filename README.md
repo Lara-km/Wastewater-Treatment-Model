@@ -1,3 +1,12 @@
+"""Description:
+Simulates pollutant decay in a reactor with chlorine dosing.
+Uses Euler’s method for ODEs and the bisection method to find 
+optimal chlorine input.
+
+After finding the optimal chlorine dosage, calculates the
+time required to reach the target pollutant concentration
+if a secondary internal decay term is added.
+"""
 # Secondary Analysis including internal decay: Newton-Raphson
 
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
