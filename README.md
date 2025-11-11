@@ -1,5 +1,4 @@
 # Pollutant-Chlorine optimisation and analysis
-"""
 Authors:
    Katie Cornish
    Lara Mason
@@ -38,7 +37,6 @@ Outputs:
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
-"""
 
 #defining parameters
 C0 = 100          # Initial pollutant concentration (mg/L)
