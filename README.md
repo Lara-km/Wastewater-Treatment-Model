@@ -1,3 +1,22 @@
+def plot_internal_decay(t_new, t_vals, C_vals):
+    
+    """
+    Plot pollutant concentration with internal decay.
+    """
+
+    plt.figure(figsize=(10,6))
+    plt.plot(t_vals, C_vals, label='C(t) with internal 2nd rate Decay')
+    plt.axhline(C_target, color='r', linestyle='--', label='C_target')
+    plt.axvline(t_new, color='g', linestyle='--', label=f't ≈ {t_new:.2f} hr')
+    plt.xlabel('Time (hr)')
+    plt.xticks(np.arange(0, 30, 2))
+    plt.ylabel('Pollutant Concentration (mg/L)')
+    plt.yticks(np.arange(0, 100, 10))
+    plt.title('Pollutant Decay with Internal Growth')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
 # Wastewater-Treatment-Model
 def waste_water_treatment_system():
     
