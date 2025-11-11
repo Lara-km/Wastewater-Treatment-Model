@@ -55,6 +55,46 @@ dt = 0.01         # Time step for Eulers
 
 # Secondary Analysis including internal decay: Newton-Raphson
 
+# regression
+# -----------------------------
+
+# Define regression model (exponential decay)
+def fit_exponential_decay(t_vals, C_vals):
+    
+    """
+    Fit exponential decay model to pollutant data.
+    
+    Parameters:
+        t_vals (array): Time points [hr]
+        C_vals (array): Pollutant concentrations [mg/L]
+    
+    skip: Plot every nth point to reduce clutter (default=50)
+    """
+   
+    def exp_decay_prediction(t, a, b, c):
+        return a * np.exp(-b * t) + c
+
+    # Fit to simulated data (e.g. first 12 hrs)
+    params, cov = curve_fit(exp_decay_prediction, t_vals, C_vals, p0=(100, 0.1, 0))
+    a, b, c = params
+    print(f"Fitted parameters: a={a:.3f}, b={b:.4f}, c={c:.3f}")
+
+    skip = 50 # plot every 50th point
+    t_plot = t_vals[::skip]
+    C_plot = C_vals[::skip]
+    C_fit_plot = exp_decay_prediction(t_plot, a, b, c)
+
+    plt.figure(figsize=(8,5))
+    plt.plot(t_plot, C_plot, 'ro', label='Simulated data' , markersize=4)
+    plt.plot(t_plot, C_fit_plot, linewidth=2, label=f'Fitted curve (b={b:.3f})')
+    plt.xlabel('Time (hr)')
+    plt.ylabel('Pollutant concentration [mg/L]')
+    plt.legend()
+    plt.grid(True)
+    plt.title('Regression Fit for Pollutant Decay')
+    plt.tight_layout()
+    plt.show()
+
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
     
     """
