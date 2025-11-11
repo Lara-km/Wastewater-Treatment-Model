@@ -83,6 +83,48 @@ def solve_coupled_ode(u_in, t_end, dt = 0.01):
         - This solver uses a fixed time step; smaller dt increases accuracy.
     """
 
+ C, u, t= C0, u_in, 0.0
+    t_vals, C_vals, u_vals= [t], [C], [u]
+ 
+    while t < t_end:
+        # Effective decay rate
+        k_eff = k0 + alpha * u
+        # Pollutant ODE: influent - decay
+        dCdt = (Q / V) * (Cin - C) - k_eff * C
+        # Chlorine ODE: input - decay
+        dudt = (Q / V) * (u_in - u) - k_chl * u
+        C += dCdt * dt
+        u += dudt * dt
+        t += dt
+
+         # Clamp to avoid tiny negative concentrations
+        C = max(C, 0.0)
+        u = max(u, 0.0)
+       
+        t_vals.append(t)
+        C_vals.append(C)
+        u_vals.append(u)
+ 
+    return np.array(t_vals), np.array(C_vals), np.array(u_vals)
+
+# Define a pollutant residual function
+
+ def pollutant_residual(u_in):
+    
+    """
+    Compute residual between final pollutant and target.
+    
+    Args:
+        u_in (float): Chlorine input
+    
+    Returns:
+        residual (float): C_final - C_target
+    """
+    
+    t_vals, C_vals, u_vals = solve_coupled_ode(u_in, t_target)
+    return C_vals[-1] - C_target
+
+
 # Root Finding (Bisection Method)
  
 def bisection_method(f, a, b, tol=1e-6, max_iter=50):
