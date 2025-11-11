@@ -171,15 +171,15 @@ def plot_bisection_convergence(mids, u_opt):
    """
    Plot bisection iteration convergence.
    """
-    plt.figure(figsize=(8, 5))
-    plt.plot(mids, 'o-', label='Midpoint per iteration')
-    plt.axhline(y=u_opt, color='r', linestyle='--', label=f'Final solution = {u_opt:.2f}')
-    plt.xlabel('Iteration')
-    plt.ylabel('Midpoint value')
-    plt.title('Bisection Method Convergence')
-    plt.legend()
-    plt.grid(True)
-    plt.show()
+   plt.figure(figsize=(8, 5))
+   plt.plot(mids, 'o-', label='Midpoint per iteration')
+   plt.axhline(y=u_opt, color='r', linestyle='--', label=f'Final solution = {u_opt:.2f}')
+   plt.xlabel('Iteration')
+   plt.ylabel('Midpoint value')
+   plt.title('Bisection Method Convergence')
+   plt.legend()
+   plt.grid(True)
+   plt.show()
  
 def plot_concentrations (t_vals, C_vals, u_vals, u_opt):
    
