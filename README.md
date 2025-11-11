@@ -1,3 +1,20 @@
+# Pollutant-Chlorine optimisation and analysis
+Authors:
+   Katie Cornish
+   Lara Mason
+   James Hodgkiss
+   Bodong
+
+
+Description:
+Simulates pollutant decay in a reactor with chlorine dosing.
+Uses Euler’s method for ODEs and the bisection method to find 
+optimal chlorine input.
+
+After finding the optimal chlorine dosage, calculates the
+time required to reach the target pollutant concentration
+if a secondary internal decay term is added.
+
 # Secondary Analysis including internal decay: Newton-Raphson
 
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
@@ -69,10 +86,7 @@ def time_to_target_with_internal_decay(u_in, D_int=0.01, V_new_factor=12):
 
 def plot_internal_decay(t_new, t_vals, C_vals):
     
-    """
-    Plot pollutant concentration with internal decay.
-    """
-
+    #Plot pollutant concentration with internal decay
     plt.figure(figsize=(10,6))
     plt.plot(t_vals, C_vals, label='C(t) with internal 2nd rate Decay')
     plt.axhline(C_target, color='r', linestyle='--', label='C_target')
