@@ -1,3 +1,10 @@
+# Pollutant-Chlorine optimisation and analysis
+"""Authors:
+   Katie Cornish
+   Lara Mason
+   James Hodgkiss
+   Bodong
+"""
 """Description:
 Simulates pollutant decay in a reactor with chlorine dosing.
 Uses Euler’s method for ODEs and the bisection method to find 
