@@ -83,7 +83,7 @@ def solve_coupled_ode(u_in, t_end, dt = 0.01):
         - This solver uses a fixed time step; smaller dt increases accuracy.
     """
 
- C, u, t= C0, u_in, 0.0
+    C, u, t= C0, u_in, 0.0
     t_vals, C_vals, u_vals= [t], [C], [u]
  
     while t < t_end:
