@@ -44,10 +44,10 @@ from scipy.optimize import curve_fit
 C0 = 100          # Initial pollutant concentration (mg/L)
 Cin = 20          # Influent concentration (mg/L)
 Q = 12_500_000    # Flow rate (L/hr)
-k0 = 0.05         # Natural decay rate (hr^-1)
+k0 = 0.02         # Natural decay rate (hr^-1)
 alpha = 0.05      # Chlorine effectiveness (hr⁻¹ per mg/L)
 t_target = 12     # Target contact time (hr)
-C_target = 10     # Target pollutant concentration (mg/L)
+C_target = 5     # Target pollutant concentration (mg/L)
 V = Q * t_target  # Reactor volume (L)
 k_chl = 0.14      # Chlorine decay constant (hr^-1)
 u_limit = 5       # Safety limit for chlorine mg/L
