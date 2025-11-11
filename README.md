@@ -39,6 +39,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
  
 #defining parameters
+
 C0 = 100          # Initial pollutant concentration (mg/L)
 Cin = 20          # Influent concentration (mg/L)
 Q = 12_500_000    # Flow rate (L/hr)
