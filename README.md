@@ -1,3 +1,14 @@
+"""Description:
+Simulates pollutant decay in a reactor with chlorine dosing.
+Uses Euler’s method for ODEs and the bisection method to find 
+optimal chlorine input.
+
+After finding the optimal chlorine dosage, calculates the
+time required to reach the target pollutant concentration
+if a secondary internal decay term is added.
+"""
+
+
 def plot_internal_decay(t_new, t_vals, C_vals):
     
     """
