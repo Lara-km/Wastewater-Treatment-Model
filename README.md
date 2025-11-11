@@ -1,9 +1,6 @@
 def plot_internal_decay(t_new, t_vals, C_vals):
     
-    """
-    Plot pollutant concentration with internal decay.
-    """
-
+    #Plot pollutant concentration with internal decay
     plt.figure(figsize=(10,6))
     plt.plot(t_vals, C_vals, label='C(t) with internal 2nd rate Decay')
     plt.axhline(C_target, color='r', linestyle='--', label='C_target')
