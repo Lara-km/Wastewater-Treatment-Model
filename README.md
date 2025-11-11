@@ -15,6 +15,44 @@ After finding the optimal chlorine dosage, calculates the
 time required to reach the target pollutant concentration
 if a secondary internal decay term is added.
 
+
+Inputs:
+    - None (all parameters are set within the script)
+    
+Dependencies:
+    - numpy
+    - scipy
+    - matplotlib
+    
+Outputs:
+    - Optimal chlorine dosage
+    - Residual verification report
+    - Plots:
+        - Bisection convergence
+        - Pollutant and chlorine concentration over time
+        - Regression fit for pollutant decay
+        - Pollutant decay with internal secondary decay
+
+#Useful imports
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+ 
+#defining parameters
+C0 = 100          # Initial pollutant concentration (mg/L)
+Cin = 20          # Influent concentration (mg/L)
+Q = 12_500_000    # Flow rate (L/hr)
+k0 = 0.05         # Natural decay rate (hr^-1)
+alpha = 0.05      # Chlorine effectiveness (hr⁻¹ per mg/L)
+t_target = 12     # Target contact time (hr)
+C_target = 10     # Target pollutant concentration (mg/L)
+V = Q * t_target  # Reactor volume (L)
+k_chl = 0.14      # Chlorine decay constant (hr^-1)
+u_limit = 5       # Safety limit for chlorine mg/L
+dt = 0.01         # Time step for Eulers
+
+
+
 # Secondary Analysis including internal decay: Newton-Raphson
 
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
