@@ -1,5 +1,6 @@
 # Pollutant-Chlorine optimisation and analysis
-"""Authors:
+"""
+Authors:
    Katie Cornish
    Lara Mason
    James Hodgkiss
@@ -31,7 +32,8 @@ Outputs:
         - Bisection convergence
         - Pollutant and chlorine concentration over time
         - Regression fit for pollutant decay
-        - Pollutant decay with internal secondary decay"""
+        - Pollutant decay with internal secondary decay
+"""
 
 #Useful imports
 import numpy as np
