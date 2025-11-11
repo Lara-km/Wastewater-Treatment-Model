@@ -53,6 +53,35 @@ k_chl = 0.14      # Chlorine decay constant (hr^-1)
 u_limit = 5       # Safety limit for chlorine mg/L
 dt = 0.01         # Time step for Eulers
 
+# Coupled ODE Solver (Euler Method)
+
+def solve_coupled_ode(u_in, t_end, dt = 0.01):
+    
+    """
+    Simulate the coupled dynamics of pollutant and chlorine concentrations 
+    in a continuous-flow reactor using Euler's method.
+
+    The pollutant concentration decreases due to natural decay and chlorine 
+    disinfection, while chlorine concentration decreases due to its own decay 
+    and the reactor outflow. The system is integrated forward in time using 
+    a simple Euler step.
+
+    Args:
+        u_in (float): Initial chlorine dosage [mg/L].
+        t_end (float): Total simulation time [hr].
+        dt (float, optional): Integration time step [hr]. Default is 0.01.
+
+    Returns:
+        tuple of np.ndarray:
+            t_vals (array): Time points from 0 to t_end [hr].
+            C_vals (array): Pollutant concentrations over time [mg/L].
+            u_vals (array): Chlorine concentrations over time [mg/L].
+
+    Notes:
+        - Concentrations are clamped to non-negative values to avoid 
+          numerical artifacts.
+        - This solver uses a fixed time step; smaller dt increases accuracy.
+    """
 
 # Root Finding (Bisection Method)
  
@@ -96,11 +125,10 @@ def bisection_method(f, a, b, tol=1e-6, max_iter=50):
 # Plots / visualisation
 
 def plot_bisection_convergence(mids, u_opt):
-    
-    """
+  
+   """
    Plot bisection iteration convergence.
    """
-   
     plt.figure(figsize=(8, 5))
     plt.plot(mids, 'o-', label='Midpoint per iteration')
     plt.axhline(y=u_opt, color='r', linestyle='--', label=f'Final solution = {u_opt:.2f}')
@@ -111,13 +139,11 @@ def plot_bisection_convergence(mids, u_opt):
     plt.grid(True)
     plt.show()
  
-    
 def plot_concentrations (t_vals, C_vals, u_vals, u_opt):
-    
+   
     """
     Plot pollutant and chlorine concentrations over time.
-    """
-    
+    """ 
     #pollutant
     plt.figure(figsize=(8,5))
     plt.plot(t_vals, C_vals, label='Pollutant concentration C(t)')
