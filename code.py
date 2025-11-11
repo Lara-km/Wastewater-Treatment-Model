@@ -109,7 +109,7 @@ def solve_coupled_ode(u_in, t_end, dt = 0.01):
 
 # Define a pollutant residual function
 
- def pollutant_residual(u_in):
+def pollutant_residual(u_in):
     
     """
     Compute residual between final pollutant and target.
