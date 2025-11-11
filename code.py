@@ -54,16 +54,52 @@ u_limit = 5       # Safety limit for chlorine mg/L
 dt = 0.01         # Time step for Eulers
 
 
+# Root Finding (Bisection Method)
+ 
+def bisection_method(f, a, b, tol=1e-6, max_iter=50):
+    
+    """
+    Find root using bisection method.
+    
+    Args:
+        f (callable): Function to find root for
+        a, b (float): Search interval
+        tol (float): Tolerance
+        max_iter (int): Maximum iterations
+    
+    Returns:
+        root (float), mids (list): Root estimate and midpoints per iteration
+    """
+    
+    mids = []
+    if f(a) * f(b) >= 0:
+        raise ValueError("f(a) and f(b) must have opposite signs for bisection.")
+        
+    for _ in range(max_iter):
+        c = (a + b) / 2
+        f_c = f(c)
+        mids.append(c)
+        
+        if abs(f_c) < tol:
+            return c, mids
+        
+        elif f(c) * f(a) < 0:
+            b = c
+            
+        else:           
+            a = c
+            
+    return (a + b) / 2 , mids # Approximate root
+
 
 
 # Plots / visualisation
 
 def plot_bisection_convergence(mids, u_opt):
-    
-    """
+  
+   """
    Plot bisection iteration convergence.
    """
-   
     plt.figure(figsize=(8, 5))
     plt.plot(mids, 'o-', label='Midpoint per iteration')
     plt.axhline(y=u_opt, color='r', linestyle='--', label=f'Final solution = {u_opt:.2f}')
@@ -74,13 +110,11 @@ def plot_bisection_convergence(mids, u_opt):
     plt.grid(True)
     plt.show()
  
-    
 def plot_concentrations (t_vals, C_vals, u_vals, u_opt):
-    
+   
     """
     Plot pollutant and chlorine concentrations over time.
-    """
-    
+    """ 
     #pollutant
     plt.figure(figsize=(8,5))
     plt.plot(t_vals, C_vals, label='Pollutant concentration C(t)')
@@ -106,6 +140,45 @@ def plot_concentrations (t_vals, C_vals, u_vals, u_opt):
     plt.grid(True) 
     plt.show()
 # Secondary Analysis including internal decay: Newton-Raphson
+
+# regression
+
+# Define regression model (exponential decay)
+def fit_exponential_decay(t_vals, C_vals):
+    
+    """
+    Fit exponential decay model to pollutant data.
+    
+    Parameters:
+        t_vals (array): Time points [hr]
+        C_vals (array): Pollutant concentrations [mg/L]
+    
+    skip: Plot every nth point to reduce clutter (default=50)
+    """
+   
+    def exp_decay_prediction(t, a, b, c):
+        return a * np.exp(-b * t) + c
+
+    # Fit to simulated data (e.g. first 12 hrs)
+    params, cov = curve_fit(exp_decay_prediction, t_vals, C_vals, p0=(100, 0.1, 0))
+    a, b, c = params
+    print(f"Fitted parameters: a={a:.3f}, b={b:.4f}, c={c:.3f}")
+
+    skip = 50 # plot every 50th point
+    t_plot = t_vals[::skip]
+    C_plot = C_vals[::skip]
+    C_fit_plot = exp_decay_prediction(t_plot, a, b, c)
+
+    plt.figure(figsize=(8,5))
+    plt.plot(t_plot, C_plot, 'ro', label='Simulated data' , markersize=4)
+    plt.plot(t_plot, C_fit_plot, linewidth=2, label=f'Fitted curve (b={b:.3f})')
+    plt.xlabel('Time (hr)')
+    plt.ylabel('Pollutant concentration [mg/L]')
+    plt.legend()
+    plt.grid(True)
+    plt.title('Regression Fit for Pollutant Decay')
+    plt.tight_layout()
+    plt.show()
 
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
     
