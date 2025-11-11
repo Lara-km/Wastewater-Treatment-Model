@@ -108,7 +108,6 @@ def plot_concentrations (t_vals, C_vals, u_vals, u_opt):
 # Secondary Analysis including internal decay: Newton-Raphson
 
 # regression
-# -----------------------------
 
 # Define regression model (exponential decay)
 def fit_exponential_decay(t_vals, C_vals):
