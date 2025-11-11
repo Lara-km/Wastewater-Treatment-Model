@@ -1,12 +1,12 @@
-# Pollutant-Chlorine optimisation and analysis
 """
+Pollutant-Chlorine optimisation and analyis
+
 Authors:
    Katie Cornish
    Lara Mason
    James Hodgkiss
    Bodong
-
-
+   
 Description:
 Simulates pollutant decay in a reactor with chlorine dosing.
 Uses Euler’s method for ODEs and the bisection method to find 
@@ -15,8 +15,8 @@ optimal chlorine input.
 After finding the optimal chlorine dosage, calculates the
 time required to reach the target pollutant concentration
 if a secondary internal decay term is added.
-
-
+"""
+"""
 Inputs:
     - None (all parameters are set within the script)
     
@@ -35,7 +35,7 @@ Outputs:
         - Pollutant decay with internal secondary decay
 """
 
-#Useful imports
+#imports
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
@@ -52,8 +52,6 @@ V = Q * t_target  # Reactor volume (L)
 k_chl = 0.14      # Chlorine decay constant (hr^-1)
 u_limit = 5       # Safety limit for chlorine mg/L
 dt = 0.01         # Time step for Eulers
-
-
 
 # Secondary Analysis including internal decay: Newton-Raphson
 
