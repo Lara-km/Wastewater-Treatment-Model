@@ -1,5 +1,3 @@
-read me with explanation of code
-
 README
 
 What each file does
