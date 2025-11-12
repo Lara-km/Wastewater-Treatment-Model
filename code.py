@@ -329,7 +329,7 @@ def plot_internal_decay(t_new, t_vals, C_vals):
     plt.xticks(np.arange(0, 30, 2))
     plt.ylabel('Pollutant Concentration (mg/L)')
     plt.yticks(np.arange(0, 100, 10))
-    plt.title('Pollutant Decay with Internal Growth')
+    plt.title('Pollutant Decay with Internal Decay')
     plt.legend()
     plt.grid(True)
     plt.show()
