@@ -16,12 +16,18 @@ Three required numerical methods implementation
 
 
 Euler method.
+
+
 Solve for coupled dynamics of pollutant and chlorine concentrations ODE in a continuous flow reactor.
 
 
 Bisection method.
+
+
 Aim for the root-finding, return root(float), midpoint(list): Root estimation and midpoints for every iteration.
 
 
 Newton-Raphson method.
+
+
 Solve for f(x)=0.
