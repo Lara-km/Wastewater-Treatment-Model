@@ -5,7 +5,8 @@ README
 What each file does
 
 
-File code.py is where the whole code is implemented. Brief description of the whole code including why and how Euler and bisection methods that were used, what to do if a secondary internal decay term is added. Below are what inputs, dependencies and outputs will show.
+File code.py is where the whole code is implemented. Brief description of the whole code including why and how Euler and bisection methods that were used, what to do if a secondary internal decay term is added. Below are inputs, dependencies and what the outputs will show.
+
 
 How to run the code
 
