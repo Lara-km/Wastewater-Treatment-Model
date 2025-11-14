@@ -29,35 +29,6 @@ Euler method is direct, efficient and accurate for smooth, first order kinetic s
 It is ideal for conceptual and educational models without adaptive step control and complex libraries needed.
 
 
-Time interval selections(Δt=0.01hr)
-
-
-Decision
-
-A small time interval (Δt=0.01hr, approximate 36s) is used.
-
-
-Smaller time interval enhance the accuracy and prevent oscillations or negative concentration artefacts.
-
-
-Initial conditions
-
-
-Decision
-
-The reactor starts with the pollutant concentration 
-
-
-C0=100mg/L and initial chlorine concentration 
-𝑢0=uin or u0=0 depending on the test scenario.
-
-
-These initial conditions show a newly dosed tank where chlorine is introduced at the start.
-
-
-Starting at u0=0 allows examination of start-up transients and realistic dosing response times.
-
-
 Bisection method.
 
 
@@ -87,5 +58,33 @@ It can find the time root effectively from a more complicated analytical express
 
 It converges faster than bisection method when the derivative is non-zero and known.
 
+
+Initial conditions
+
+
+Decision
+
+The reactor starts with the pollutant concentration 
+
+
+C0=100mg/L and initial chlorine concentration 
+𝑢0=uin or u0=0 depending on the test scenario.
+
+
+These initial conditions show a newly dosed tank where chlorine is introduced at the start.
+
+
+Starting at u0=0 allows examination of start-up transients and realistic dosing response times.
+
+
+Time interval selections(Δt=0.01hr)
+
+
+Decision
+
+A small time interval (Δt=0.01hr, approximate 36s) is used.
+
+
+Smaller time interval enhance the accuracy and prevent oscillations or negative concentration artefacts.
 
 
