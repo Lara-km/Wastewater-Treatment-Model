@@ -45,7 +45,9 @@ It can find the time root effectively from a more complicated analytical express
 It converges faster than bisection method when the derivative is non-zero and known.
 
 
-Initial conditions
+Other decisions:
+
+1.Initial conditions
 
 
 Decision: The reactor starts with the pollutant concentration 
@@ -59,14 +61,55 @@ These initial conditions show a newly dosed tank where chlorine is introduced at
 Starting at u0=0 allows examination of start-up transients and realistic dosing response times.
 
 
-Time interval selections(Δt=0.01hr)
+2.Time interval selections(Δt=0.01hr)
 
 
-Decision:A small time interval (Δt=0.01hr, approximate 36s) is used.
+Decision: A small time interval (Δt=0.01hr, approximate 36s) is used.
 
 
 Smaller time interval enhance the accuracy and prevent oscillations or negative concentration artefacts.
 
 
-Model Validation — Exponential Regression
+3.Model Validation — Exponential Regression
 
+
+Decision: An exponential decay model C(t)=ae^(-bt) +c was fitted to simulation results using SciPy’s curve_fit.
+
+
+A good fit shows the simulated kinetic are consistent with theoretical expectations.
+
+
+This is aiming to test if pollutant decay in the simulation behaves similiar as a first-order kinetic process.
+
+
+Implication:
+This regression confirms that the simulated decay curve follows expected behaviour, validating the ODE structure and parameter scaling.
+
+
+4.Internal Secondary Decay Term
+
+
+Decision: Dintt^2 was added in a secondary analysis as an additional internal decay term,solved by Newton-Raphson method.
+
+
+Newton-Raphson method effectively solved the corresponding time that meets the target pollutant concentration under this model.This was used to simulate potential slower,secondary removel mechanisms.
+
+
+Implication:
+This could help to estimate non-linear effect would extend or the time beyond the idealised first-order case.
+
+
+5.Safety and realistic constraints
+
+
+Decision: Chlorine limit=5mg/L.
+
+
+This ensures the simulation is achievable and under safe dosing concentrations.
+
+
+Implication:
+This obeys the real-world constraint limits and gives practical operational insight rather than purely theoretical results.
+
+
+6.
