@@ -112,4 +112,70 @@ Implication:
 This obeys the real-world constraint limits and gives practical operational insight rather than purely theoretical results.
 
 
-6.
+6.Visualisation and Diagnostics
+
+
+Decision: implementation of comprehensive visualisation functions
+
+
+a.Decay of contaminant concentration subjected to optimal chlorine dose(9.25mg/L)
+
+
+b.Regression fit for pollutant decay.
+
+
+C.Internal decay for pollutant concentration.
+
+
+These assist to check if the model operate as the expectation, help to find any divergence, numerical instability or oscillation.They also give better understanding and decision making of the trend.
+
+
+Implication:
+Graphical results give direct insight of dosing effects and check the vaildation of the expected pollutant removel profile.
+
+
+7.Computational Trade-offs
+
+
+Decision: Simple analysis and numerical tools were used instead of automated or complicated optimization techniques.
+
+
+This provides a apparent and clear model that fits behaviour verification process. Each method was taken based on its clearity, comprehension and reliability.
+
+
+Implication:
+While the model is not very detailed, it gives clear reason-effect relevance and engineering understanding.
+
+
+8.Code Structure and Modularity
+
+
+Decision: The program was written as a modular function collection(solver, residual, optimisation, plotting, regression, secondary decay).
+
+
+This ensures the design is readable, reusable and future expandable. Each module can be tested or replaced individually.(eg.Bisection method can be replaced by scipy.optimize.minimize_scalar or a minimal disruption of weighted cost function.
+
+
+Implication:
+This structure improves model flexibility for further research and the adaptation of different reactor geometries or chemical systems.
+
+
+Summary of design philosophy
+
+
+The model framework integrates realistic chemical kinetic with clear, strong numerical methods
+
+
+a.Euler method gives easier implementation of time integration.
+
+
+b.Bisection and Newton-Raphson method ensure stable convergence.
+
+
+c.Parameters are under limit of UK water treatment practice.
+
+
+d.Feasible direct testing, calibration and optimal extension.
+
+
+The design philosophy is based on clarity, stability and comprehension, giving a powerful basic of analysis and optimization of chlorine dosing strategies in wastewater treatment systems.
