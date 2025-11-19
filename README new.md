@@ -32,7 +32,76 @@ Function: fit_exponential_decay()
 Purpose: Using data points from the ODE, the least squares regression method is used to calculate an exponential decay curve that simplifies the model and shows the overall trend.
 
 ## 3.0 How to Run the Code
+###3.1 Requirments
+The code requires the following libraries: 
+NumPy – for numerical arrays and computation 
 
+Matplotlib – for plotting graphs 
+
+SciPy – for curve fitting and Newton Raphson root finding 
+
+###3.2 Running the program  
+
+The entire code is executed from the python script ‘code.py’ 
+
+Copy the code from GitHub and it can be run inside an IDE such as spyder 
+
+###3.3 what the program does when run 
+
+When the script is run it automatically: 
+
+Solves coupled pollutant chlorine ODE’s using Euler’s Method  
+
+Uses the bisection method to calculate the optimal uin that acheives the target effluent concentration after 12hrs of contact time. 
+
+Generates diagnostic plots:  
+
+- Bisection convergence  
+
+- Pollutant concentration over time  
+
+- Chlorine decay profile  
+
+ 
+
+Fits a regression model to the pollutant decay curve using non-linear least squares 
+
+Uses Newton raphson root finding to calculate the time required to reach the target concentration when the addition of internal decay is factored in 
+
+Produces 2 final plots including: 
+
+Regression model  
+
+Pollutant concentrations over time including internal decay 
+
+ 
+
+###3.4 Configuring Parameters 
+
+All the system parameters (flow rate, decay constants, time step target concentration, etc) are defined near the top of the script. These values can be adapted to model different wastewater systems.
+
+###3.5 Output  
+
+The script produces: 
+
+Printed numerical results including: 
+
+Optimal chlorine dose 
+
+Residual checks  
+Time to target with internal decay  
+
+A set of plots that visualise system behaviour: 
+
+-Bisection convergence 
+
+-Pollutant decay 
+
+-Chlorine decay 
+
+-Regression fit 
+
+-Pollutant decay with internal decay 
 
 
 
