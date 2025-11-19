@@ -173,7 +173,7 @@ Fixed parameters seen in the correpsonding code are as follows,
 
 code.py - Main script: runs the program and produces all outputs aswell as running all the definitions.
 
-README new.md - Documentation (this file)
+README.md - Documentation (this file)
 
 ## 7.0 Authors
 
