@@ -108,7 +108,25 @@ A set of plots that visualise system behaviour:
 
 ## 4.0 Design and Modularity
 
+Although the project is implemented into a single Python file, it is designed using a modular internal structure. The file contains multiple clearly defined functions for readability and reusability, allowing it to be easier to debug and extend.
 
+### 4.1 Internal Structure
+
+All numerical methods are each implemented as separate functions.
+
+All plots have separate callable functions.
+
+The flow of the project is defined in a function, waste_water_treatment_system(), at the bottom. This calls all the correctly ordered functions under one name.
+
+### 4.2 Why a Modular Structure
+
+Each function performs one clearly defined task.
+
+Functions can be reused with different inputs without changing the rest of the code.
+
+The numerical method functions are completely independent from plotting or printing functions.
+
+Separation improves readability and makes the code easier to maintain or modify.
 
 ## 5.0 Assumptions and Limitations
 
