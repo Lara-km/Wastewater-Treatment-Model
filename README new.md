@@ -50,7 +50,8 @@ Purpose: Using data points from the ODE, the least squares regression method is 
 
 3. Fixed influent Concentration (Cin): The influent of waste water is assumed to have a uniform pollutant concentration. 
 
-### 5.2 System Parameters: Fixed parameters seen in the correpsonding code are as follows,
+### 5.2 System Parameters: 
+Fixed parameters seen in the correpsonding code are as follows,
 
 1. Initial Pollutant Concentration (C0)
    
@@ -70,6 +71,16 @@ Purpose: Using data points from the ODE, the least squares regression method is 
     
 9. Safety Limit for Chlorine (ulimit)
 
+
+### 5.3 Code Limitations
+
+1. Code is very responsive to system parameters
+   
+2. To effectivly use this code for different Areas within the UK or elsewhere, the system parameters must be changed according to specific data available
+
+3.  The Newton-Raphson Method increases the sensitivity of the code due to the decay terms present
+
+   
 ## 6.0 Repository Structure
 
 code.py - Main script: runs the program and produces all outputs aswell as running all the definitions.
