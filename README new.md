@@ -39,8 +39,12 @@ Purpose: Using data points from the ODE, the least squares regression method is 
 
 
 
+## 6.0 Repository Structure
 
-## 6.0 Authors
+code.py - Main script: runs the program and produces all outputs aswell as running all the definitions.
+README new.md - Documentation (this file)
+
+## 7.0 Authors
 
 Lara Mason
 
@@ -52,6 +56,6 @@ Bondong Zhang
 
 The Univerisity of Edinburgh
 
-## 7.0 License
+## 9.0 License
 
 CMM 10
