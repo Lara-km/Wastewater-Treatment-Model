@@ -45,7 +45,7 @@ SciPy – for curve fitting and Newton-Raphson root finding
 
 The entire code is executed from the Python script ‘code.py’.
 
-Copy the code from GitHub, and it can be run inside an IDE such as Spyder.
+Download the code.py file and open in spyder, or copy and paste from the code.py GitHub repository.
 
 ### 3.3 What the program does when run 
 
