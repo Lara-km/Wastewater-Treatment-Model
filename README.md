@@ -33,27 +33,27 @@ Purpose: Using data points from the ODE, the least squares regression method is 
 
 ## 3.0 How to Run the Code
  
-### 3.1 Requirments
+### 3.1 Requirements
 The code requires the following libraries: 
 NumPy – for numerical arrays and computation 
 
 Matplotlib – for plotting graphs 
 
-SciPy – for curve fitting and Newton Raphson root finding 
+SciPy – for curve fitting and Newton-Raphson root finding 
 
 ### 3.2 Running the program  
 
-The entire code is executed from the python script ‘code.py’ 
+The entire code is executed from the Python script ‘code.py’.
 
-Copy the code from GitHub and it can be run inside an IDE such as spyder 
+Copy the code from GitHub, and it can be run inside an IDE such as Spyder.
 
-### 3.3 what the program does when run 
+### 3.3 What the program does when run 
 
-When the script is run it automatically: 
+When the script is run, it automatically: 
 
-Solves coupled pollutant chlorine ODE’s using Euler’s Method  
+Solves coupled pollutant chlorine ODEs using Euler’s Method  
 
-Uses the bisection method to calculate the optimal uin that acheives the target effluent concentration after 12hrs of contact time. 
+Uses the bisection method to calculate the optimal uin that achieves the target effluent concentration after 12 hrs of contact time. 
 
 Generates diagnostic plots:  
 
@@ -67,19 +67,19 @@ Generates diagnostic plots:
 
 Fits a regression model to the pollutant decay curve using non-linear least squares 
 
-Uses Newton raphson root finding to calculate the time required to reach the target concentration when the addition of internal decay is factored in 
+Uses Newton-Raphson root finding to calculate the time required to reach the target concentration when the addition of internal decay is factored in 
 
-Produces 2 final plots including: 
+Produces 2 final plots, including: 
 
 Regression model  
 
-Pollutant concentrations over time including internal decay 
+Pollutant concentrations over time, including internal decay 
 
  
 
 ### 3.4 Configuring Parameters 
 
-All the system parameters (flow rate, decay constants, time step target concentration, etc) are defined near the top of the script. These values can be adapted to model different wastewater systems.
+All the system parameters (flow rate, decay constants, time step target concentration, etc.) are defined near the top of the script. These values can be adapted to model different wastewater systems.
 
 ### 3.5 Output  
 
@@ -94,15 +94,15 @@ Time to target with internal decay
 
 A set of plots that visualise system behaviour: 
 
--Bisection convergence 
+- Bisection convergence 
 
--Pollutant decay 
+- Pollutant decay 
 
--Chlorine decay 
+- Chlorine decay 
 
--Regression fit 
+- Regression fit 
 
--Pollutant decay with internal decay 
+- Pollutant decay with internal decay 
 
 
 
@@ -132,14 +132,14 @@ Separation improves readability and makes the code easier to maintain or modify.
 
 ### 5.1 Assumptions and Principles:
 
-1. Continously stirred tank/perfect mixing: this allows for unifrom concentration of pollutant and chlorine throughout the control volume.
+1. Continuously stirred tank/perfect mixing: this allows for uniform concentration of pollutant and chlorine throughout the control volume.
    
-2. Constant Flow Rate (Q): constant flow of the waste water into the tank is modelled as steady state for mass balance purposes. 
+2. Constant Flow Rate (Q): constant flow of the wastewater into the tank is modelled as steady state for mass balance purposes. 
 
-3. Fixed influent Concentration (Cin): The influent of waste water is assumed to have a uniform pollutant concentration. 
+3. Fixed influent concentration (Cin): The influent of wastewater is assumed to have a uniform pollutant concentration. 
 
 ### 5.2 System Parameters: 
-Fixed parameters seen in the correpsonding code are as follows,
+Fixed parameters seen in the corresponding code are as follows:
 
 1. Initial Pollutant Concentration (C0)
    
@@ -162,16 +162,16 @@ Fixed parameters seen in the correpsonding code are as follows,
 
 ### 5.3 Code Limitations
 
-1. Code is very responsive to system parameters
+1. Code is very responsive to system parameters.
    
-2. To effectivly use this code for different Areas within the UK or elsewhere, the system parameters must be changed according to specific data available
+2. To effectively use this code for different areas within the UK or elsewhere, the system parameters must be changed according to specific data available.
 
-3.  The Newton-Raphson Method increases the sensitivity of the code due to the decay terms present
+3.  The Newton-Raphson method increases the sensitivity of the code due to the decay terms present.
 
    
 ## 6.0 Repository Structure
 
-code.py - Main script: runs the program and produces all outputs aswell as running all the definitions.
+code.py - Main script: runs the program and produces all outputs as well as running all the definitions.
 
 README.md - Documentation (this file)
 
@@ -185,8 +185,8 @@ Katie Cornish
 
 Bondong Zhang
 
-The Univerisity of Edinburgh
+The University of Edinburgh
 
-## 9.0 License
+## 9.0 Licence
 
 CMM 10
