@@ -37,7 +37,7 @@ Purpose: Using data points from the ODE, the least squares regression method is 
 
 ## 5.0 Assumptions and Limitations
 
-Assumptions and principles:
+### 5.1 Assumptions and Principles:
 
 1. Continously stirred tank/perfect mixing: this allows for unifrom concentration of pollutant and chlorine throughout the control volume.
    
@@ -45,7 +45,7 @@ Assumptions and principles:
 
 3. Fixed influent Concentration (Cin): The influent of waste water is assumed to have a uniform pollutant concentration. 
 
-System Parameters: Fixed parameters seen in the correpsonding code are as follows,
+### 5.2 System Parameters: Fixed parameters seen in the correpsonding code are as follows,
 
 1. Initial Pollutant Concentration (C0)
    
