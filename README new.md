@@ -25,6 +25,7 @@ The code, models the teriatry stage of a wastewater treatment plant to determine
 
 
 6.0 Authors 
+
 Lara Mason
 James Hodgkiss
 Katie Cornish 
@@ -33,4 +34,5 @@ Bondong Zhang
 The Univerisity of Edinburgh
 
 7.0 License
+
 CMM 10
