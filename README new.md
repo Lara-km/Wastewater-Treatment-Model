@@ -37,7 +37,33 @@ Purpose: Using data points from the ODE, the least squares regression method is 
 
 ## 5.0 Assumptions and Limitations
 
+Assumptions and principles:
 
+1. Continously stirred tank/perfect mixing: this allows for unifrom concentration of pollutant and chlorine throughout the control volume.
+   
+2. Constant Flow Rate (Q): constant flow of the waste water into the tank is modelled as steady state for mass balance purposes. 
+
+3. Fixed influent Concentration (Cin): The influent of waste water is assumed to have a uniform pollutant concentration. 
+
+System Parameters: Fixed parameters seen in the correpsonding code are as follows,
+
+1. Initial Pollutant Concentration (C0)
+   
+2. Influent Concentration (Cin)
+   
+3. Flow Rate (Q)
+   
+4. Natural Decay Rate (k0)
+   
+5. Chlorine Effectiveness (α)
+    
+6. Target Contact Time (ttarget)
+    
+7. Reactor Volume (V)
+    
+8. Chlorine Decay Constant (kCl)
+    
+9. Safety Limit for Chlorine (ulimit)
 
 ## 6.0 Repository Structure
 
